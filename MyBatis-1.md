@@ -1,9 +1,6 @@
 ## #和$的区别
 ### #的用法举例
- * <select id="selectPerson" parameterType="int" resultType="hashmap">
-  SELECT * FROM PERSON WHERE ID = #{id}
- </select>
- 
+ * SELECT * FROM PERSON WHERE ID = #{id}
  * This statement is called selectPerson, takes a parameter of type int (or Integer), and returns a HashMap keyed by column names mapped to row values.
  * #{id} This tells MyBatis to create a PreparedStatement parameter. With JDBC, such a parameter would be identified by a "?" in SQL passed to a new PreparedStatement, something like this:
     String selectPerson = "SELECT * FROM PERSON WHERE ID=?";
