@@ -9,7 +9,7 @@ Assume we want to connect to CustomerDB and ProductDB two databases.
 
 ### Create configuration.xml file
 <p>This configuration file is maintaining database connection information. As below, there are two environments configured. The db url, username, password information are stored in jdbc.properties file. To use it, we need specify it in properties tag.</p>
-<code>
+```
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
@@ -43,12 +43,12 @@ Assume we want to connect to CustomerDB and ProductDB two databases.
 		<mapper resource="com/xx/xxDao.xml" />
 	</mappers>
 </configuration>
-</code>
+```
 
 ### jdbc.properties file
 <p>We store the connection information in properties file, so it is easy to change the value based on which environment the application is deployed.</p>
 <p>On dev, we need to change to DEV db connection information. On prod, we need prod connection information. </p>
-<code>
+```
 #customer db
 customerdb.url=jdbc:db2://<hostname>:<port>/<database>:sslConnection=true;
 customerdb.username=username
@@ -58,12 +58,12 @@ customerdb.password=xxx
 #productdb.url=jdbc:db2://<hostname>:<port>/<database>:sslConnection=true;
 #productdb.username=username
 #productdb.password=xxx
-</code>
+```
 
 
 ### MybatisUtil.java
 <p>This class is used to get sql seesion factory from customer db / product db. Configuration.xml and jdbc.properties are used in this class.</p>
-<code>
+```
 public class MyBatisUtil {
 	private static SqlSessionFactory sqlSessionFactoryCustomer;
 	private static SqlSessionFactory sqlSessionFactoryProduct;
@@ -89,7 +89,7 @@ public class MyBatisUtil {
      }
 		return sqlSessionFactoryProduct;
 	}
-</code>
+```
 
 ### DAO interface class
 omit
@@ -97,7 +97,7 @@ omit
 omit
 ### Service class
 <p>Service class is where the dao interface are really used and called.</p>
-<code>
+```
 public int getCustomerNum(){
 		SqlSession sqlSession = MyBatisUtil.getSqlSession4Customer().openSession();
 		try {
@@ -108,4 +108,4 @@ public int getCustomerNum(){
 		}
 		
 	}
-</code>
+```
