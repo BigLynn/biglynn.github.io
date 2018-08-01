@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: post
 title: Configure mybatis with multiple db connections
+date: 2018-08-01
 ---
 
 Learn how to configure mybatis to connection different databases in Java Web Project.
